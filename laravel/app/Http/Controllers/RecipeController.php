@@ -42,11 +42,14 @@ class RecipeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  $id
      * @return RecipeResource
      */
     public function show($id)
     {
+        $recipe = Recipe::find($id);
+        if(!$recipe) {
+            return ('Recipe not Found');
+        }
         return new RecipeResource(Recipe::find($id));
     }
 
