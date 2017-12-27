@@ -16,7 +16,6 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        $recipe = Recipe::all();
         return new RecipeCollectionResource(Recipe::all());
     }
 
@@ -49,6 +48,7 @@ class RecipeController extends Controller
     public function show($id)
     {
         $recipe = Recipe::find($id);
+
         if(!$recipe) {
             return [
                 'error' => [
@@ -56,6 +56,7 @@ class RecipeController extends Controller
                 ]
             ];
         }
+
         return new RecipeResource(Recipe::find($id));
     }
 
