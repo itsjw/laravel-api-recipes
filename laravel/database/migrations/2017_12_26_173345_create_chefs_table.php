@@ -15,6 +15,10 @@ class CreateChefsTable extends Migration
     {
         Schema::create('chefs', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('city');
+            $table->boolean('available');
+            $table->text('contact_info');
             $table->timestamps();
         });
     }

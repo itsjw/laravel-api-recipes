@@ -15,7 +15,13 @@ class CreateEntreesTable extends Migration
     {
         Schema::create('entrees', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('recipe_id')->unsigned();
+            $table->integer('chef_id')->unsigned();
+            $table->text('about');
             $table->timestamps();
+
+            $table->foreign('chef_id')->references('id')->on('chefs');
+            $table->foreign('recipe_id')->references('id')->on('recipes');
         });
     }
 

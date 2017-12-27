@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Recipe;
+use App\Http\Resources\Recipe as RecipeResource;
 use Illuminate\Http\Request;
 
 class RecipeController extends Controller
@@ -41,12 +42,12 @@ class RecipeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Recipe  $recipe
-     * @return \Illuminate\Http\Response
+     * @param  $id
+     * @return RecipeResource
      */
-    public function show(Recipe $recipe)
+    public function show($id)
     {
-        //
+        return new RecipeResource(Recipe::find($id));
     }
 
     /**
