@@ -1,5 +1,5 @@
 **Recipes** is an app where amateur chefs can show what food they can make for people to order (think Uber for cooking). People can leave reviews for
-a specific recipe made by a a specific chef. Chefs can pick recipes they are able to make(well) from a list of recipes; these will be called entrées.
+a specific recipe made by a a specific chef. Chefs can register recipes they are able to make (well) from a list of recipes; these will be called entrées.
 
 In order to run locally:
 
@@ -8,21 +8,22 @@ Must have docker and docker-compose installed.
 1. Clone the repository.
 2. Using a terminal, cd into the laradock directory and type "docker-compose up -d nginx mysql
 3. Check if the site is running by going to localhost:8300
-4. When the site is up, using an API application or your browser address bar, access one of the endpoint addresses of the api (e.g. localhost:8300/api/recipes)
+4. Run ```php artisan migrate```
+5. Using an API application or your browser address bar, access one of the endpoint addresses of the api (e.g. localhost:8300/api/recipes)
 
 
 
 **API calls implemented:**
-- *GET recipes*  list (GET localhost:8300/api/recipes)  single (GET localhost:8300/api/recipes/{id})
-- *GET chefs*    list (GET localhost:8300/api/chefs)    single (GET localhost:8300/api/chefs/{id})
+- GET recipes  **list** (GET *localhost:8300/api/recipes*)  **single** (GET *localhost:8300/api/recipes/{id}*)
+- GET chefs    **list** (GET *localhost:8300/api/chefs*)    **single** (GET *localhost:8300/api/chefs/{id}*)
 
 **API calls to be implemented:**
-POST entree
-POST review
-POST chefs
-POST recipes
-PUT recipes
-PUT entree
+- POST entree
+- POST review
+- POST chefs
+- POST recipes
+- PUT recipes
+- PUT entree
 
 *Resources used:*
 
@@ -31,7 +32,7 @@ PUT entree
 - General info for tests:         https://laravel.com/docs/5.5/http-tests
 
 
-*Extensions to add:*
+*Ways to expand app:*
 1. User authentication and roles for API calls.
 2. Simple front-end for viewing chef's portfolios and place to leave reviews.
 3. A way to order an entree as a customer via the application
