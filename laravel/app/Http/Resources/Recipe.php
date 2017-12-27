@@ -17,7 +17,8 @@ class Recipe extends Resource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'description' => $this->description
+            'description' => $this->description,
+            'hours_to_make' => $this->hours_to_make
         ];
     }
 }

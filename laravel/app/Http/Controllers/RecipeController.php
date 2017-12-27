@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Recipe;
 use App\Http\Resources\Recipe as RecipeResource;
+use App\Http\Resources\RecipeCollection as RecipeCollectionResource;
 use Illuminate\Http\Request;
 
 class RecipeController extends Controller
@@ -15,7 +16,8 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        //
+        $recipe = Recipe::all();
+        return new RecipeCollectionResource(Recipe::all());
     }
 
     /**
@@ -48,7 +50,11 @@ class RecipeController extends Controller
     {
         $recipe = Recipe::find($id);
         if(!$recipe) {
-            return ('Recipe not Found');
+            return [
+                'error' => [
+                    'message' => 'Recipe not Found'
+                ]
+            ];
         }
         return new RecipeResource(Recipe::find($id));
     }
