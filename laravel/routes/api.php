@@ -19,3 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/recipes', 'RecipeController@index');
 Route::get('/recipes/{id}', 'RecipeController@show');
+
+Route::get('/chefs', 'ChefController@index');
+Route::get('/chefs/{id}', 'ChefController@show');

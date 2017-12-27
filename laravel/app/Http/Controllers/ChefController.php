@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Chef;
+use App\Http\Resources\Chef as ChefResource;
+use App\Http\Resources\ChefCollection as ChefCollectionResource;
 use Illuminate\Http\Request;
 
 class ChefController extends Controller
@@ -13,7 +16,7 @@ class ChefController extends Controller
      */
     public function index()
     {
-        //
+        return new ChefCollectionResource(Chef::all());
     }
 
     /**
@@ -45,7 +48,17 @@ class ChefController extends Controller
      */
     public function show($id)
     {
-        //
+        $chef = Chef::find($id);
+
+        if(!$chef) {
+            return [
+                'error' => [
+                    'message' => 'Chef not Found'
+                ]
+            ];
+        }
+        
+        return new ChefResource(Chef::find($id));
     }
 
     /**

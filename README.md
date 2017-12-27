@@ -1,5 +1,5 @@
 Recipes is an app where amateur chefs can show what food they can make for people to order. People can leave reviews for
-a specific recipe made by a a specific chef. Chefs can register recipes they can make from a list of recipes.
+a specific recipe made by a a specific chef. Chefs can pick recipes they are able to make(well) from a list of recipes; these will be called entrées.
 
 API calls implemented:
 
@@ -9,7 +9,6 @@ GET chefs
 GET recipes
 POST entree
 POST review
-GET chefs/$id
 
 
 
@@ -22,3 +21,7 @@ Must have docker and docker-compose installed.
 3. Check if the site is running by going to localhost:8300
 
 
+Extenstions to this app:
+1. User authentication for API calls.
+2. Simple front-end for viewing chef's portfolios and place to leave reviews.
+3. A way to order an entree via the application
