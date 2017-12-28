@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class RecipeTest extends TestCase
-{
+{    
     /**
      * Normal flow of get request to get one recipe by id.
      *
@@ -41,5 +41,30 @@ class RecipeTest extends TestCase
         $response = $this->get('/api/recipes');
 
         $response->assertStatus(200);
+    }
+
+    /**
+     * Test API call to create a recipe
+     */
+    public function testPost()
+    {
+        $faker = \Faker\Factory::create();
+        $testName = $faker->word;
+
+        $response = $this->json(
+            'POST', 
+            '/api/recipes',
+            [
+                'name' => $testName,
+                'description' => $faker->sentence,
+                'hours_to_make' => $faker->randomNumber(1)
+            ]);
+
+
+        $response
+            ->assertStatus(200)
+            ->assertJson([
+                'name' => $testName,
+            ]);
     }
 }

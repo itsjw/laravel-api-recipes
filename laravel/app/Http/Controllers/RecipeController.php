@@ -30,7 +30,7 @@ class RecipeController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in storage. 
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -38,9 +38,9 @@ class RecipeController extends Controller
     public function store(Request $request)
     {
         //todo validate for duplicates
-        
+
         $recipe = Recipe::create($request->all());
-        return $recipe;        
+        return $recipe;
     }
 
     /**
