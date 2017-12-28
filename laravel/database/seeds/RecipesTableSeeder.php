@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Recipe;
 
 class RecipesTableSeeder extends Seeder
 {
@@ -11,12 +12,15 @@ class RecipesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('recipes')->insert([
-            'name' => 'Spaghetti Bolognese',
-            'description' => 'A classic meal of spaghettin and meat sauce',
-            'hours_to_make' => 2,
-            'created_at' => '2017-07-07 17:17:17',
-            'updated_at' => '2017-07-07 17:17:17'
-        ]);
+        $faker = \Faker\Factory::create();
+
+        //Create 5 recipes
+        for ($i = 0; $i < 5; $i++) {
+            Recipe::create([
+                'name' => $faker->word,
+                'description' => $faker->sentence,
+                'hours_to_make' => $faker->randomNumber(5)
+            ]);
+        }
     }
 }

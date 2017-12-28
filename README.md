@@ -6,6 +6,7 @@ In order to run locally:
 Must have docker and docker-compose installed.
 
 1. Clone the repository.
+2. If no .env files present - CD into the laravel directory and type cp .env.example .env | CD into the laradock directory and type cp env-example .env
 2. Using a terminal, cd into the laradock directory and type "docker-compose up -d nginx mysql
 3. Check if the site is running by going to localhost:8300
 4. Run ```php artisan migrate```

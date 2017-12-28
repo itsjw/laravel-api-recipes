@@ -37,7 +37,10 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //todo validate for duplicates
+        
+        $recipe = Recipe::create($request->all());
+        return $recipe;        
     }
 
     /**
