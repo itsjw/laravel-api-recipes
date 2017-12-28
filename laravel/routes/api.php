@@ -17,8 +17,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//Recipes
 Route::get('/recipes', 'RecipeController@index');
 Route::get('/recipes/{id}', 'RecipeController@show');
+Route::post('/recipes', 'RecipeController@store');
 
+//Chefs
 Route::get('/chefs', 'ChefController@index');
 Route::get('/chefs/{id}', 'ChefController@show');
+
+//Entrees
