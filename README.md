@@ -8,16 +8,18 @@ Must have docker and docker-compose installed.
 1. Clone the repository.
 2. If no .env files present - CD into the laravel directory and type cp .env.example .env | CD into the laradock directory and type cp env-example .env
 3. Using a terminal, cd into the laradock directory and type "docker-compose up -d nginx mysql
-4. Check if the site is running by going to localhost:8300
-5. Run ```php artisan migrate``` and ```php artisan key:generate```
-6. Using an API application or your browser address bar, access one of the endpoint addresses of the api (e.g. localhost:8300/api/recipes)
+4. Using a command line tool, get into the docker container with the laravel app by typing ```docker-compose exec -it laradock_workspace_1 bash```
+5. cd into the laravel directory and run ```composer install```
+6. Run ```php artisan migrate``` and ```php artisan key:generate``` and if you want to add some mock data ```php artisan db:seed```
+7. Check if the site is running by going to localhost:8300
+8. Using an API application or your browser address bar, access one of the endpoint addresses of the api (e.g. localhost:8300/api/recipes)
 
 
 
 **API calls implemented:**
 - GET recipes  **list** (GET *localhost:8300/api/recipes*)  **single** (GET *localhost:8300/api/recipes/{id}*)
 - GET chefs    **list** (GET *localhost:8300/api/chefs*)    **single** (GET *localhost:8300/api/chefs/{id}*)
-- POST recipes (POST *localhost:8300/api/recipes*) format: ```["name":"*name of recipe*", "description":"*text about recipe*" , "hours_to_make", "*estimated hours to make this*"]```
+- POST recipes (POST *localhost:8300/api/recipes*) json request body: ```["name":"name of recipe", "description":"text about recipe" , "hours_to_make", "estimated hours to make this"]```
 
 **API calls to be implemented:**
 - POST entree
