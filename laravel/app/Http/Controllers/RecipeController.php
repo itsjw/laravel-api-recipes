@@ -38,8 +38,18 @@ class RecipeController extends Controller
     public function store(Request $request)
     {
         //todo validate for duplicates
+        $recipe = Recipe::where('name', $request->name);
 
-        $recipe = Recipe::create($request->all());
+        try {
+            $recipe = Recipe::create($request->all());
+        } catch(\Illuminate\Database\QueryException $e) {
+            return [
+                'error' => [
+                    'message' => sprintf('Recipe: %s already exists.', $request->name)
+                ]
+            ];
+        }
+        
         return $recipe;
     }
 
@@ -69,9 +79,8 @@ class RecipeController extends Controller
      * @param  \App\Recipe  $recipe
      * @return \Illuminate\Http\Response
      */
-    public function edit(Recipe $recipe)
-    {
-        //
+    public function edit(Request $request, $id)
+    {        
     }
 
     /**
@@ -81,9 +90,21 @@ class RecipeController extends Controller
      * @param  \App\Recipe  $recipe
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Recipe $recipe)
+    public function update(Request $request, $id)
     {
-        //
+        $recipe = Recipe::find($id);
+
+        //Cannot update a recipe that does not exist
+        if(!$recipe) {
+            return [
+                'error' => [
+                    'message' => 'Recipe not found'
+                ]
+            ];
+        }
+
+        $recipe->update($request->all());
+        return $recipe;
     }
 
     /**

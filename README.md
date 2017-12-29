@@ -20,12 +20,12 @@ Must have docker and docker-compose installed.
 - GET recipes  **list** (GET *localhost:8300/api/recipes*)  **single** (GET *localhost:8300/api/recipes/{id}*)
 - GET chefs    **list** (GET *localhost:8300/api/chefs*)    **single** (GET *localhost:8300/api/chefs/{id}*)
 - POST recipes (POST *localhost:8300/api/recipes*) json request body: ```["name":"name of recipe", "description":"text about recipe" , "hours_to_make", "estimated hours to make this"]```
+- PUT recipes (PUT *localhost:8300/api/recipes/{id}*) json request body: ```["name":"name of recipe", "description":"text about recipe" , "hours_to_make", "estimated hours to make this"]```
 
 **API calls to be implemented:**
 - POST entree
 - POST review
 - POST chefs
-- PUT recipes
 - PUT entree
 
 *Resources used:*
@@ -33,23 +33,11 @@ Must have docker and docker-compose installed.
 - Setting up laradock on Windows: https://blog.nojaf.com/2016/08/19/laradock-on-windows-10/
 - Creating api with laravel 5.5:  https://medium.com/@dinotedesco/using-laravel-5-5-resources-to-create-your-own-json-api-formatted-api-2c6af5e4d0e8
 - General info for tests:         https://laravel.com/docs/5.5/http-tests
+- Laravel RESTful Back End 5.5:   https://code.tutsplus.com/tutorials/build-a-react-app-with-laravel-restful-backend-part-1-laravel-5-api--cms-29442
 
 
 *Ways to expand app:*
-1. Create test databbase
+1. Create test database
 2. User authentication and roles for API calls.
 3. Simple front-end for viewing chef's portfolios and place to leave reviews.
 4. A way to order an entree as a customer via the application
-
-
-**note:** *I could not get seeding/fixtures to work so in order to pass tests, a data entry must be made into the recipes and chefs table such as:*
-```
-INSERT INTO `default`.chefs
-(name, city, available, contact_info, created_at, updated_at)
-VALUES('Kirk Knight', 'Rotterdam', 1, 'email:kirkskookies@gmail.com', '2017-12-24 17:56:33.000', '2017-12-24 17:56:33.000');
-```
-```
-INSERT INTO `default`.recipes
-(name, description, hours_to_make, created_at, updated_at)
-VALUES('Risotto', 'Rice with a creamy mushroom and white wine sauce', 2, '2017-12-24 09:09:23.000', '2017-12-24 09:09:23.000');
-```
