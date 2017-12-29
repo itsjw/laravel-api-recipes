@@ -122,13 +122,12 @@ class RecipeTest extends TestCase
     public function testPutNonExistant()
     {
         $faker = \Faker\Factory::create();
-        $testName = $faker->word;
 
         $response = $this->json(
             'PUT', 
             '/api/recipes/1111',
             [
-                'name' => $testName,
+                'name' => $faker->word,
                 'description' => $faker->sentence,
                 'hours_to_make' => $faker->randomNumber(1)
             ]);

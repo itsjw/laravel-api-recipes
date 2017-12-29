@@ -37,9 +37,6 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-        //todo validate for duplicates
-        $recipe = Recipe::where('name', $request->name);
-
         try {
             $recipe = Recipe::create($request->all());
         } catch(\Illuminate\Database\QueryException $e) {

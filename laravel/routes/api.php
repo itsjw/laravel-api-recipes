@@ -26,5 +26,6 @@ Route::put('/recipes/{id}', 'RecipeController@update');
 //Chefs
 Route::get('/chefs', 'ChefController@index');
 Route::get('/chefs/{id}', 'ChefController@show');
+Route::post('/chefs', 'ChefController@store');
 
 //Entrees

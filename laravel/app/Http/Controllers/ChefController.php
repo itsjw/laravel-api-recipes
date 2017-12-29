@@ -37,7 +37,17 @@ class ChefController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $chef = Chef::create($request->all());
+        } catch(\Illuminate\Database\QueryException $e) {
+            return [
+                'error' => [
+                    'message' => sprintf('Chef: %s already exists.', $request->name)
+                ]
+            ];
+        }
+        
+        return $chef;
     }
 
     /**
