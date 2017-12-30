@@ -29,3 +29,4 @@ Route::get('/chefs/{id}', 'ChefController@show');
 Route::post('/chefs', 'ChefController@store');
 
 //Entrees
+Route::post('/entrees', 'EntreeController@store');

@@ -22,6 +22,8 @@ class CreateEntreesTable extends Migration
 
             $table->foreign('chef_id')->references('id')->on('chefs');
             $table->foreign('recipe_id')->references('id')->on('recipes');
+
+            $table->unique(['recipe_id', 'chef_id']);
         });
     }
 

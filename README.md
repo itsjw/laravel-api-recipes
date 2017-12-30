@@ -21,11 +21,11 @@ Must have docker and docker-compose installed.
 - GET chefs    **list** (GET *localhost:8300/api/chefs*)    **single** (GET *localhost:8300/api/chefs/{id}*)
 - POST recipes (POST *localhost:8300/api/recipes*) json request body: ```["name":"name of recipe", "description":"text about recipe" , "hours_to_make", "estimated hours to make this"]```
 - PUT recipes (PUT *localhost:8300/api/recipes/{id}*) json request body: ```["name":"name of recipe", "description":"text about recipe" , "hours_to_make", "estimated hours to make this"]```
+- POST chefs (POST *localhost:8300/api/chefs*) json request body: ```["name":"name of chef","city":"cith chef lives in", "contact_info":"text describing how to get in touch with chef"```
+- POST entree (POST *localhost:8300/api/entrees*) json request body: ```["recipe_id":"id of existing recipe", "chef_id":"id of existing chef", "about":"uniqeness of that chef cooking that recipe"]```
 
 **API calls to be implemented:**
-- POST entree
 - POST review
-- POST chefs
 - PUT entree
 
 *Resources used:*
@@ -37,7 +37,7 @@ Must have docker and docker-compose installed.
 
 
 *Ways to expand app:*
-1. Create test database
+1. Create test database and abstract test class to support tests.
 2. User authentication and roles for API calls.
 3. Simple front-end for viewing chef's portfolios and place to leave reviews.
 4. A way to order an entree as a customer via the application
